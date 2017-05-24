@@ -1,17 +1,26 @@
 package com.veontomo.web
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInfo
+import org.junit.runner.RunWith
+import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 
-@Tag("fast")
+
+@RunWith(SpringRunner::class)
+@SpringBootTest
 class ControllerTest {
-    @Test
-    @DisplayName("My 1st JUnit 5 test! 😎")
-    fun test(info: TestInfo){
-        assertEquals("My 1st JUnit 5 test! 😎", info.displayName) { "TestInfo is injected correctly" }
-    }
+    @Autowired
+    private var c: Controller = Controller()
 
+    @Test
+    @DisplayName("Controller is injected")
+    fun testController() {
+        assertNotNull(c)
+    }
 }
+

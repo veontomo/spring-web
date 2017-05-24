@@ -5,12 +5,15 @@ import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 
+import org.junit.jupiter.api.Assertions.*
+
 @RunWith(SpringRunner::class)
 @SpringBootTest
 class WebApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+        assertEquals(0, 0)
+    }
 
 }
